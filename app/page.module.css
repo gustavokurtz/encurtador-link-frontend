@@ -44,6 +44,23 @@
   padding: 0;
 }
 
+
+.deleteButton {
+  padding: 8px 16px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  font-size: 14px;
+}
+
+.deleteButton:hover {
+  background-color: #d9363e;
+}
+
+
 .urlItem {
   margin-bottom: 15px;
   padding: 10px;

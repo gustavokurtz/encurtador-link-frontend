@@ -9,6 +9,7 @@ export default function Home() {
   const [urls, setUrls] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // Carregar URLs do backend
   const loadUrls = async () => {
     try {
       const response = await axios.get("http://localhost:3001/");
@@ -22,6 +23,7 @@ export default function Home() {
     loadUrls();
   }, []);
 
+  // Encurtar uma URL
   const handleShorten = async () => {
     if (!originalUrl) {
       alert("Informe uma URL válida!");
@@ -39,6 +41,16 @@ export default function Home() {
       alert("Erro ao encurtar URL");
     } finally {
       setLoading(false);
+    }
+  };
+
+  // Deletar uma URL
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3001/${id}`);
+      setUrls((prev) => prev.filter((url) => url.id !== id)); // Remove a URL deletada do estado
+    } catch (error) {
+      alert("Erro ao deletar URL");
     }
   };
 
@@ -79,6 +91,9 @@ export default function Home() {
               <p>
                 <strong>Cliques:</strong> {url.clicks}
               </p>
+              <button onClick={() => handleDelete(url.id)} className={styles.deleteButton}>
+                Deletar
+              </button>
             </li>
           ))}
         </ul>

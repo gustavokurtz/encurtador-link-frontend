@@ -1,84 +1,220 @@
 .container {
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
+  padding: 30px;
+  max-width: 900px;
+  margin: 20px auto;
+  font-family: "Poppins", Arial, sans-serif;
+  color: #e0e0ff; /* Texto claro */
+  background-color: #2d2d47; /* Fundo roxo escuro */
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Mais destaque no sombreamento */
+  animation: pulse 3s infinite; /* Animação sutil no container */
 }
 
 .title {
   text-align: center;
-  margin-bottom: 20px;
-  color: #333;
+  margin-bottom: 25px;
+  font-size: 38px;
+  font-weight: bold;
+  color: #8e44ad; /* Roxo vibrante */
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .form {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 15px;
+  margin-bottom: 25px;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
 .input {
-  padding: 10px;
-  width: 300px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  padding: 12px;
+  width: 400px;
+  border: 1px solid #555;
+  border-radius: 8px;
+  background-color: #3b3b58;
+  color: #e0e0ff;
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 12px #8e44ad;
+  transform: scale(1.05);
 }
 
 .button {
-  padding: 10px 20px;
-  background-color: #0070f3;
+  padding: 12px 25px;
+  background-color: #8e44ad;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out, transform 0.3s;
+  animation: glow 1.5s infinite alternate;
 }
 
-.button:disabled {
-  background-color: #999;
-  cursor: not-allowed;
+.button:hover {
+  background-color: #6b3a92;
+  transform: scale(1.1);
 }
 
 .urlList {
   list-style: none;
   padding: 0;
+  animation: fadeIn 1s ease-in-out;
 }
-
-
-.deleteButton {
-  padding: 8px 16px;
-  background-color: #ff4d4f;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-  font-size: 14px;
-}
-
-.deleteButton:hover {
-  background-color: #d9363e;
-}
-
 
 .urlItem {
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background: #000000;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #4e4e69;
+  border-radius: 12px;
+  background: #3b3b58;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideIn 0.8s ease-in-out;
+}
+
+.urlItem:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
 }
 
 .link {
-  color: #0070f3;
+  color: #a29bfe; /* Roxo suave */
   text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .link:hover {
   text-decoration: underline;
+  color: #dcdcdc;
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #e74c3c; /* Vermelho vibrante */
+  font-size: 24px;
+  transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
+}
+
+.deleteButton:hover {
+  color: #c0392b;
+  transform: scale(1.3);
 }
 
 .loading {
   text-align: center;
-  color: #666;
+  font-size: 20px;
+  color: #888;
 }
+
+.stroong {
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px #8e44ad;
+  }
+  to {
+    box-shadow: 0 0 20px #8e44ad;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .input {
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .urlItem {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .urlItem {
+    font-size: 12px;
+  }
+
+  .deleteButton {
+    font-size: 18px;
+  }
+}
+
+
+
+

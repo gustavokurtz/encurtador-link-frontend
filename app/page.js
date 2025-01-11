@@ -77,22 +77,22 @@ export default function Home() {
           {urls.map((url) => (
             <li key={url.id} className={styles.urlItem}>
               <p>
-                <strong>Original:</strong>{" "}
+                <strong className={styles.stroong}>Original:</strong>{" "}
                 <a href={url.originalUrl} target="_blank" rel="noopener noreferrer" className={styles.link}>
                   {url.originalUrl}
                 </a>
               </p>
               <p>
-                <strong>Encurtada:</strong>{" "}
+                <strong className={styles.stroong}>Encurtada:</strong>{" "}
                 <a href={url.shortUrl} target="_blank" rel="noopener noreferrer" className={styles.link}>
                   {url.shortUrl}
                 </a>
               </p>
               <p>
-                <strong>Cliques:</strong> {url.clicks}
+                <strong className={styles.stroong}>Cliques:</strong> {url.clicks}
               </p>
-              <button onClick={() => handleDelete(url.id)} className={styles.deleteButton}>
-                Deletar
+              <button onClick={() => handleDelete(url.id)} className={styles.deleteButton} aria-label="Delete URL">
+              🗑️
               </button>
             </li>
           ))}

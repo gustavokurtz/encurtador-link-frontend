@@ -86,7 +86,11 @@
   color: #a29bfe; /* Roxo suave */
   text-decoration: none;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
+    /* Adiciona quebra de linha para URLs longas */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal; /* Garante que as quebras sejam respeitadas */
 }
 
 .link:hover {

@@ -12,7 +12,7 @@ export default function Home() {
   // Carregar URLs do backend
   const loadUrls = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/");
+      const response = await axios.get("https://encurtador-link-backend.onrender.com/");
       setUrls(response.data);
     } catch (error) {
       console.error("Erro ao buscar URLs:", error);
@@ -32,7 +32,7 @@ export default function Home() {
 
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3001/encurtar", {
+      const response = await axios.post("https://encurtador-link-backend.onrender.com//encurtar", {
         originalUrl,
       });
       setUrls((prev) => [response.data, ...prev]);
@@ -47,7 +47,7 @@ export default function Home() {
   // Deletar uma URL
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/${id}`);
+      await axios.delete(`https://encurtador-link-backend.onrender.com//${id}`);
       setUrls((prev) => prev.filter((url) => url.id !== id)); // Remove a URL deletada do estado
     } catch (error) {
       alert("Erro ao deletar URL");
